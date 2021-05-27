@@ -1,0 +1,38 @@
+#!/usr/bin/python
+
+import socket
+import requests
+
+
+def get_private_ip():
+    # https://stackoverflow.com/questions/166506/finding-local-ip-addresses-using-pythons-stdlib#166589
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    try:
+        # doesn't even have to be reachable
+        s.connect(('10.255.255.255', 1))
+        IP = s.getsockname()[0]
+    except Exception:
+        IP = '127.0.0.1'
+    finally:
+        s.close()
+    return IP
+
+
+def get_public_ip():
+    try:
+        IP = requests.get("https://api.ipify.org").text
+    except Exception:
+        IP = 'None'
+    return IP
+
+
+public = get_public_ip()
+private = get_private_ip()
+host = socket.gethostname()
+
+print(f'''
+{host} (127.0.0.1)
+
+Private IP: {private}
+Public IP: {public}
+''')
