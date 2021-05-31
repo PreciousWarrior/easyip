@@ -7,7 +7,9 @@ a simple utility to view your public and privatw adressess.
 
 2.
 ` $ wget https://raw.githubusercontent.com/PreciousWarrior/easyip/main/easyip`
+
 ` $ chmod +x easyip`
+
 ` # mv easyip /bin`
 
 Run it via `easyip`
