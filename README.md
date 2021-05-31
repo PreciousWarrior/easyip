@@ -1,5 +1,5 @@
 # easyip
-a simple utility to view your public and privatw adressess.
+a simple utility to view your public and private IP addresess.
 
 
 # Install
